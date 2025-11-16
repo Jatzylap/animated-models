@@ -80,8 +80,11 @@ function checkModel(model) {
         var rot = element.rotation
 
         var hasOrigin = true
+        
+        /*
         var hasAxis = true
         var hasAngle = true
+        */
 
         if (!rot.hasOwnProperty('origin')) {
           errors.push('Couldn\'t find the "origin" property in "rotation" for element "' + index + '".')
@@ -91,7 +94,7 @@ function checkModel(model) {
           errors.push('The "origin" property in "rotation" for element "' + index + '" is invalid.')
           hasOrigin = false
         }
-        ```
+        /*
         if (!rot.hasOwnProperty('axis')) {
           errors.push('Couldn\'t find the "axis" property in "rotation" for element "' + index + '".')
           hasAxis = false
@@ -107,7 +110,7 @@ function checkModel(model) {
         if (hasAngle && [-45, -22.5, 0, 22.5, 45].indexOf(rot.angle) == -1) {
           errors.push('The "angle" property in "rotation" for element "' + index + '" is invalid.')
           hasAngle = false
-        ```
+        */
         }
 
         if (hasOrigin) {
@@ -287,4 +290,5 @@ function checkContext(models, textures) {
   }
 
 }
+
 
