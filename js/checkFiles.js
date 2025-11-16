@@ -110,9 +110,8 @@ function checkModel(model) {
         if (hasAngle && [-45, -22.5, 0, 22.5, 45].indexOf(rot.angle) == -1) {
           errors.push('The "angle" property in "rotation" for element "' + index + '" is invalid.')
           hasAngle = false
-        */
         }
-
+        */
         if (hasOrigin) {
           for (var i = 0; i < 3; i++) {
             var coord = ['x', 'y', 'z'][i]
@@ -290,5 +289,6 @@ function checkContext(models, textures) {
   }
 
 }
+
 
 
