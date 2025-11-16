@@ -796,7 +796,7 @@ function JsonModel(name, rawModel, texturesReference, clipUVs) {
         throw new Error('Couldn\'t find "origin" property in "rotation" for element "' + index + '".')
       if (!(element.rotation.origin.length == 3))
         throw new Error('"origin" property in "rotation" for element "' + index + '" is invalid.')
-
+```
       if (!element.rotation.hasOwnProperty('axis'))
         throw new Error('Couldn\'t find "axis" property in "rotation" for element "' + index + '".')
       if (!((['x', 'y', 'z']).indexOf(element.rotation.axis) >= 0))
@@ -806,7 +806,7 @@ function JsonModel(name, rawModel, texturesReference, clipUVs) {
         throw new Error('Couldn\'t find "angle" property in "rotation" for element "' + index + '".')
       if (!(([45, 22.5, 0, -22.5, -45]).indexOf(element.rotation.angle) >= 0))
         throw new Error('"angle" property in "rotation" for element "' + index + '" is invalid.')
-
+```
 
       // get origin, axis and angle
 
@@ -816,8 +816,8 @@ function JsonModel(name, rawModel, texturesReference, clipUVs) {
         z: element.rotation.origin[2] - 8
       }
 
-      var axis = element.rotation.axis
-      var angle = element.rotation.angle
+      var rotation = element.rotation
+      //var angle = element.rotation.angle
 
 
       // create pivot
@@ -839,12 +839,12 @@ function JsonModel(name, rawModel, texturesReference, clipUVs) {
 
       // rotate pivot
 
-      if (axis == 'x')
-        pivot.rotateX(angle * Math.PI/180)
-      else if (axis == 'y')
-        pivot.rotateY(angle * Math.PI/180)
-      else if (axis == 'z')
-        pivot.rotateZ(angle * Math.PI/180)
+      if (rotation.x)
+        pivot.rotateX(rotation.x * Math.PI/180)
+      else if (rotation.y)
+        pivot.rotateY(rotation.y * Math.PI/180)
+      else if (rotation.z)
+        pivot.rotateZ(rotation.z * Math.PI/180)
 
 
       // add pivot
@@ -1008,3 +1008,4 @@ function JsonModel(name, rawModel, texturesReference, clipUVs) {
 
 JsonModel.prototype = Object.create(THREE.Object3D.prototype)
 JsonModel.prototype.constructor = JsonModel
+
