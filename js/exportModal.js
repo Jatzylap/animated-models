@@ -216,7 +216,7 @@ function createFiles(animationFrames, animation, modelName, textureName, modelPa
 
 function stringifyModel(model) {
 
-  return JSON.stringify(model, cleanJson, 4).replace(/\\"/g, '"').replace(/,/g, ', ').replace(/\}clean"/g, ' }').replace(/"clean\{/g, '{ ').replace(/\]clean"/g, ' ]').replace(/"clean\[/g, '[ ').replace(/"\:"/g, '": "').replace(/"\:\[/g, '": [').replace(/"east":/g,'"east": ').replace(/"west":/g,'"west": ').replace(/"down":/g,'"down": ').replace(/"up":/g,'"up":   ').replace(/"to":/g,'"to":  ').replace(/"x":/g,'"x":        ').replace(/"y":/g,'"y":        ').replace(/"z":/g,'"z":        ')
+  return JSON.stringify(model, cleanJson, 4).replace(/\\"/g, '"').replace(/,/g, ', ').replace(/\}clean"/g, ' }').replace(/"clean\{/g, '{ ').replace(/\]clean"/g, ' ]').replace(/"clean\[/g, '[ ').replace(/"\:"/g, '": "').replace(/"\:\[/g, '": [').replace(/"east":/g,'"east": ').replace(/"west":/g,'"west": ').replace(/"down":/g,'"down": ').replace(/"up":/g,'"up":   ').replace(/"to":/g,'"to":  ').replace(/"x":/g,'"x": ').replace(/"y":/g,'"y": ').replace(/"z":/g,'"z": ')
 
 }
 
@@ -238,5 +238,6 @@ function cleanJson(key, value) {
     return value;
   }
 }
+
 
 
