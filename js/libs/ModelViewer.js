@@ -816,7 +816,7 @@ function JsonModel(name, rawModel, texturesReference, clipUVs) {
         z: element.rotation.origin[2] - 8
       }
 
-      var rotation = element.rotation
+      var rotationEl = element.rotation
       //var angle = element.rotation.angle
 
 
@@ -839,12 +839,12 @@ function JsonModel(name, rawModel, texturesReference, clipUVs) {
 
       // rotate pivot
 
-      if (rotation.hasOwnProperty('x'))
-        pivot.rotateX(rotation.x * Math.PI/180)
-      if (rotation.hasOwnProperty('y'))
-        pivot.rotateY(rotation.y * Math.PI/180)
-      if (rotation.hasOwnProperty('z'))
-        pivot.rotateZ(rotation.z * Math.PI/180)
+      if (rotationEl.hasOwnProperty('x'))
+        pivot.rotateX(rotationEl.x * Math.PI/180)
+      if (rotationEl.hasOwnProperty('y'))
+        pivot.rotateY(rotationEl.y * Math.PI/180)
+      if (rotationEl.hasOwnProperty('z'))
+        pivot.rotateZ(rotationEl.z * Math.PI/180)
 
 
       // add pivot
@@ -1008,5 +1008,6 @@ function JsonModel(name, rawModel, texturesReference, clipUVs) {
 
 JsonModel.prototype = Object.create(THREE.Object3D.prototype)
 JsonModel.prototype.constructor = JsonModel
+
 
 
