@@ -796,7 +796,7 @@ function JsonModel(name, rawModel, texturesReference, clipUVs) {
         throw new Error('Couldn\'t find "origin" property in "rotation" for element "' + index + '".')
       if (!(element.rotation.origin.length == 3))
         throw new Error('"origin" property in "rotation" for element "' + index + '" is invalid.')
-```
+      /*
       if (!element.rotation.hasOwnProperty('axis'))
         throw new Error('Couldn\'t find "axis" property in "rotation" for element "' + index + '".')
       if (!((['x', 'y', 'z']).indexOf(element.rotation.axis) >= 0))
@@ -806,7 +806,7 @@ function JsonModel(name, rawModel, texturesReference, clipUVs) {
         throw new Error('Couldn\'t find "angle" property in "rotation" for element "' + index + '".')
       if (!(([45, 22.5, 0, -22.5, -45]).indexOf(element.rotation.angle) >= 0))
         throw new Error('"angle" property in "rotation" for element "' + index + '" is invalid.')
-```
+      */
 
       // get origin, axis and angle
 
@@ -816,7 +816,7 @@ function JsonModel(name, rawModel, texturesReference, clipUVs) {
         z: element.rotation.origin[2] - 8
       }
 
-      var rotationEl = element.rotation
+      var rotationAngles = element.rotation
       //var angle = element.rotation.angle
 
 
@@ -839,12 +839,12 @@ function JsonModel(name, rawModel, texturesReference, clipUVs) {
 
       // rotate pivot
 
-      if (rotationEl.hasOwnProperty('x'))
-        pivot.rotateX(rotationEl.x * Math.PI/180)
-      if (rotationEl.hasOwnProperty('y'))
-        pivot.rotateY(rotationEl.y * Math.PI/180)
-      if (rotationEl.hasOwnProperty('z'))
-        pivot.rotateZ(rotationEl.z * Math.PI/180)
+      if (rotationAngles.hasOwnProperty('x'))
+        pivot.rotateX(rotationAngles.x * Math.PI/180)
+      if (rotationAngles.hasOwnProperty('y'))
+        pivot.rotateY(rotationAngles.y * Math.PI/180)
+      if (rotationAngles.hasOwnProperty('z'))
+        pivot.rotateZ(rotationAngles.z * Math.PI/180)
 
 
       // add pivot
@@ -1008,6 +1008,7 @@ function JsonModel(name, rawModel, texturesReference, clipUVs) {
 
 JsonModel.prototype = Object.create(THREE.Object3D.prototype)
 JsonModel.prototype.constructor = JsonModel
+
 
 
 
